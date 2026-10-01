@@ -85,28 +85,28 @@ export const profile: Profile = {
     {
       name: 'SuaraWarga System',
       description:
-        'A comprehensive community complaint and report tracking system. Features role-based access for citizens, department admins, and super admins to submit, verify, and resolve public complaints with real-time lifecycle tracking.',
-      tech: ['Next.js', 'React', 'React Native', 'MySQL', 'Tailwind CSS'],
+        'A multi-platform public aspiration and complaint system (Web & Mobile) integrated with Leaflet OpenStreetMap precision mapping, Role-Based Access Control (RBAC), and interactive modern interfaces.',
+      tech: ['Next.js', 'React', 'React Native', 'Node.js', 'Express', 'MySQL', 'Tailwind CSS'],
       highlights: [
-        'Role-based access control with granular permission layers',
-        'End-to-end complaint lifecycle tracking: submit, review, verify, resolve',
-        'Cross-platform accessibility with responsive web interface and mobile app',
+        'Interactive Leaflet geospatial mapping with GPS synchronization and reverse geocoding',
+        'Role-Based Access Control (RBAC) across Citizens, Regional Admins, and Super Admins',
+        'Full complaint lifecycle tracking with real-time status transitions and threaded discussions',
       ],
       links: [
-        { label: 'GitHub Repository', url: 'https://github.com/BintangPPLG/frontend-web-pengaduan' },
+        { label: 'GitHub Repository', url: 'https://github.com/BintangPPLG/Pengaduan-Masyarakat' },
       ],
       featured: true,
       year: '2025',
     },
     {
-      name: 'Digital Library Management',
+      name: 'Digital Library (SMK Taruna Bhakti)',
       description:
-        'A structured web-based library management system. Includes user authentication, complete book catalog browsing, borrowing workflow with status tracking, protected routes, and a clean reading interface.',
-      tech: ['React', 'JavaScript', 'Tailwind CSS', 'MySQL'],
+        'A modern digital library management system designed for SMK Taruna Bhakti Depok to support literacy and student learning, integrating Kurikulum Merdeka textbooks and vocational practical modules.',
+      tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MySQL'],
       highlights: [
-        'Secure authentication with session handling and protected routes',
-        'Interactive catalog search, book reservation, and borrowing lifecycle',
-        'Fast and lightweight interface designed for mobile and desktop screens',
+        'Multi-role portal supporting Students, Teachers, and Library Administrators',
+        'Curated catalog categorized across 5 vocational majors (RPL, TKJ, DKV, BC, TEI)',
+        'Self-service book reservation, borrowing workflow, and digital catalog search',
       ],
       links: [
         { label: 'GitHub Repository', url: 'https://github.com/BintangPPLG/perpustakaan-taruna-bhakti' },
@@ -115,14 +115,14 @@ export const profile: Profile = {
       year: '2025',
     },
     {
-      name: 'Second Style E-Commerce',
+      name: 'E-Commerce Basic (SecondStyle)',
       description:
-        'A responsive e-commerce web platform integrating FakeStoreAPI for dynamic product inventory, interactive catalog filtering, product detail modals, and cart state management.',
+        'An e-commerce application for shopping. This project marks the very beginning of my coding journey, originally built with foundational pure HTML, CSS, and vanilla JavaScript during grade 10 as my initial milestone in web development.',
       tech: ['HTML5', 'CSS3', 'JavaScript'],
       highlights: [
-        'Dynamic product fetching and client-side category filtering',
-        'Responsive product cards with quick-view detail interactions',
-        'Clean modular JavaScript architecture without external heavyweight libraries',
+        'Foundational coding milestone exploring pure HTML5 structure and CSS styling',
+        'Complete shopping flow: dynamic product catalog, detail views, cart, and simulated checkout',
+        'Crafted with native web fundamentals without relying on heavyweight frameworks',
       ],
       links: [
         { label: 'GitHub Repository', url: 'https://github.com/BintangPPLG/e-commerce-basic' },
