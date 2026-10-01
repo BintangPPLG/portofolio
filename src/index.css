@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/jetbrains-mono";
+
+/* ─────────────────────────────────────────────────────────────
+   Clean, Modern Portfolio Design System
+   Light = @theme defaults (emitted on :root).
+   Dark  = html[data-theme='dark'] override.
+   ───────────────────────────────────────────────────────────── */
+
+@theme {
+  /* surfaces */
+  --color-paper: #FBFBFC;          /* crisp page background */
+  --color-panel: #FFFFFF;          /* cards, panels */
+  --color-raised: #FFFFFF;         /* elevated */
+  --color-line: #EAEAEF;           /* refined hairlines */
+  --color-line-strong: #D5D5DF;    /* emphasized borders */
+
+  /* text */
+  --color-ink: #111116;
+  --color-ink-muted: #5C5C66;
+  --color-ink-faint: #9494A0;
+
+  /* brand */
+  --color-primary: #4F46E5;
+  --color-primary-strong: #4338CA;
+  --color-primary-soft: rgb(79 70 229 / 0.08);
+  --color-accent: #0D9488;
+  --color-accent-soft: rgb(13 148 136 / 0.08);
+
+  /* semantic */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-md: 0 4px 16px -2px rgb(0 0 0 / 0.06);
+  --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.08);
+}
+
+@layer base {
+  html[data-theme='dark'] {
+    --color-paper: #0B0C10;
+    --color-panel: #12131A;
+    --color-raised: #181922;
+    --color-line: #222330;
+    --color-line-strong: #2E3040;
+    --color-ink: #F3F4F6;
+    --color-ink-muted: #9CA3AF;
+    --color-ink-faint: #6B7280;
+    --color-primary: #7C83FD;
+    --color-primary-strong: #969CFF;
+    --color-primary-soft: rgb(124 131 253 / 0.12);
+    --color-accent: #2DD4BF;
+    --color-accent-soft: rgb(45 212 191 / 0.1);
+    --color-success: #34D399;
+    --color-warning: #FBBF24;
+    --color-error: #F87171;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 16px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 0.5);
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased font-normal;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-sans font-medium tracking-tight text-ink;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-6 md:px-8;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 md:py-24;
+  }
+
+  .kicker {
+    @apply font-mono text-[11px] tracking-[0.16em] uppercase text-ink-faint font-normal;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.2s ease-out;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-ink-faint transition-colors duration-150;
+  }
+  .field:focus {
+    @apply border-primary outline-none ring-2 ring-primary/20;
+  }
+  .field[aria-invalid='true'] {
+    @apply border-error;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-normal text-sm transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper
+      bg-ink text-paper dark:bg-ink dark:text-paper hover:opacity-90 active:scale-[0.98] cursor-pointer shadow-sm;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-normal text-sm transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper
+      bg-panel text-ink border border-line hover:border-line-strong hover:bg-paper active:scale-[0.98] cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-normal text-sm transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper
+      bg-paper text-ink border border-line hover:bg-panel hover:border-line-strong active:scale-[0.98] cursor-pointer;
+  }
+}
